@@ -1,0 +1,72 @@
+config:
+  label: Датчики и реле
+blocks:
+  - component: oh-block
+    config: {}
+    slots:
+      default: []
+  - component: oh-block
+    config: {}
+    slots:
+      default:
+        - component: oh-grid-cells
+          config: {}
+          slots:
+            default:
+              - component: oh-label-cell
+                config:
+                  title: Тамбур
+                  icon: oh:switch
+                  item: ESPTAM_ESPTAMState
+                  actionAnalyzerItems:
+                    - ESPTAM_ESPTAMState
+                  on: online
+                  action: analyzer
+              - component: oh-label-cell
+                config:
+                  item: ESPTAM_Hum
+                  stateAsHeader: true
+                  expandable: false
+                  title: Влажность
+                  icon: oh:humidity
+                  action: analyzer
+                  footer: Тамур
+                  actionAnalyzerChartType: day
+                  actionAnalyzerItems:
+                    - ESPTAM_Hum
+              - component: oh-label-cell
+                config:
+                  trendItem: ESPTAM_Temp
+                  action: analyzer
+                  item: ESPTAM_Temp
+                  stateAsHeader: true
+                  expandable: false
+                  title: Температура
+                  icon: oh:temperature
+                  footer: Тамбур
+                  actionAnalyzerChartType: day
+                  actionAnalyzerItems:
+                    - ESPTAM_Temp
+              - component: oh-cell
+                config:
+                  color: blue
+                  action: toggle
+                  actionItem: ESPTAM_SWTAM1
+                  actionCommand: ON
+                  actionCommandAlt: OFF
+                  item: ESPTAM_SWTAM1
+                  stateAsHeader: true
+                  title: Свет
+                  icon: oh:lightbulb
+                  footer: Тамбур
+              - component: oh-label-cell
+                config:
+                  title: Подогрев
+                  icon: oh:switch
+                  color: orange
+                  item: ESPTAM_SWTAM2
+                  action: toggle
+                  actionCommand: ON
+                  actionCommandAlt: OFF
+                  actionItem: ESPTAM_SWTAM2
+masonry: []
